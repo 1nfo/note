@@ -13,12 +13,15 @@ git init
 
 在你的dir下初始化repo。具体初始化的dir和其他路径与dir中的路径的关系，以及使用git命令时的current dir的关系，有待确定。目前看来，可以在dir德尔子目录下使用git，且依然使用dir下的repo。
 
-##3. add&commit
+##3. add/rm&commit
 >git add gitnote.rm
-git commit -m 'some comment'
+git commit -m 'some comment' 
+git rm gitnote.rm
+git commit -m 'rm'
 
 添加一些文件（***add***），然后提交（***commit***）
 ***rm***在tempload添加一个删除文，使用***commit***来提交删除
+git rm不但是添加一个删除的命令，且==会和rm命令相同直接删除文件==
 
 ##4. status&log
 >git status 
