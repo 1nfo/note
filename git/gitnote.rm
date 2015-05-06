@@ -49,3 +49,19 @@ some conceptions and commends.
 |workload|------------|tmpload|-----------------|bunch|
   add ------------------>|commit----------------->|
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <---------checkout|<----------------reset
+
+---
+##6. github, remote add & push
+github 使用ssh验证，关于非对称加密，可见key.rm
+>ssh-keygen -t rsa -C ‘myemailadress’ 
+
+使用默认选项，一路回车创建你的密钥。linux在～/.ssh/下有你的公钥和私钥，复制**公钥**到github你的设置中。同时，要新建一个仓库（是否要和本地仓库同名？）
+>cd your_repo_dir
+>git remote add git@github.com:yournameingithub/yourreponame
+>git push -u origin yourbrunchname
+
+推送本地到远程需要在仓库目录下，
+第一次连接两个仓库要命名一个origin，push时-u会把两个仓库的brunch关联起来
+>git push origin reponame
+
+之后就可以简化推送了
