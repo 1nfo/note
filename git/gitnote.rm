@@ -4,7 +4,7 @@
 >git config --global  user.name 'xxx' 
 git config --global user.email 'xxx@xxx.xx'
 
-config配置git，`--global` option可以配置全局，保存在～/.gitconfig文件中
+config配置git，___--global___ option可以配置全局，保存在～/.gitconfig文件中
 ##2. init
 >cd 'urdir'   
 git init
@@ -15,3 +15,16 @@ git init
 git commit -m 'some comment'
 
 添加一些文件（add），然后提交（commit）
+##4. status&log
+>git status 
+git log
+git diff
+
+check **workload for _add_** and check the **records of _commit_**
+***diff*** shows the differences between the workload and your current files
+
+***
+###sum
+some conceptions and commends. 
+`your current files-------------workload------------------brunch`
+`--------------------------------add---------------------commit-------------`
