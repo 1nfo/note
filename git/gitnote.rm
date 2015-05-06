@@ -1,0 +1,7 @@
+#Learning Git#
+---
+##1. config
+>git config --global  user.name 'xxx' 
+git config --global user.email 'xxx@xxx.xx'
+
+config配置git，`--global` option可以配置全局，保存在～/.gitconfig文件中
