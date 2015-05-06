@@ -5,3 +5,13 @@
 git config --global user.email 'xxx@xxx.xx'
 
 config配置git，`--global` option可以配置全局，保存在～/.gitconfig文件中
+##2. init
+>cd 'urdir'   
+git init
+
+在你的dir下初始化repo。具体初始化的dir和其他路径与dir中的路径的关系，以及使用git命令时的current dir的关系，有待确定。目前看来，可以在dir德尔子目录下使用git，且依然使用dir下的repo。
+##3. add&commit
+>git add gitnote.rm
+git commit -m 'some comment'
+
+添加一些文件（add），然后提交（commit）
