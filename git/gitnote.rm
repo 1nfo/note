@@ -20,7 +20,7 @@ git rm gitnote.rm
 git commit -m 'rm'
 
 添加一些文件（***add***），然后提交（***commit***）
-***rm***在tempload添加一个删除文，使用***commit***来提交删除
+***rm***在tempload添加一个删除命令，使用***commit***来提交删除
 git rm不但是添加一个删除的命令，且==会和rm命令相同直接删除文件==
 
 ##4. status&log
@@ -32,7 +32,7 @@ check **workload for _add_** and check the **records of _commit_**
 ***diff*** shows the differences between the workload and tempload
 
 ##5. checkout&reset
->git checkout
+>git checkout --gitnote.rm
 >git reset --hard HEAD^
 >git reset --hard [commitid]
 
@@ -90,3 +90,8 @@ git merge newbranch
 >git branch -d newbranch
 
 这个newbranch就像个小弟为master在前面探路，保证master的整洁性。
+#9. 分支管理
+master分支是稳定版本
+dev为实际版本，团队合作时，每个人分别在自己的dev分支上工作，完成后提交到一起，注意使用***--no-ff***模式，***这样合并后是在dev上新建一个提交并复制成待合并分支的最新版本，而不是沿着待合并的分支逐个复制***
+>git merge --no-ff -m 'no fast forward'
+
