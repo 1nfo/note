@@ -1,30 +1,48 @@
 #Learning Git#
 ---
+
 ##1. config
 >git config --global  user.name 'xxx' 
 git config --global user.email 'xxx@xxx.xx'
 
 config配置git，___--global___ option可以配置全局，保存在～/.gitconfig文件中
+
 ##2. init
 >cd 'urdir'   
 git init
 
 在你的dir下初始化repo。具体初始化的dir和其他路径与dir中的路径的关系，以及使用git命令时的current dir的关系，有待确定。目前看来，可以在dir德尔子目录下使用git，且依然使用dir下的repo。
+
 ##3. add&commit
 >git add gitnote.rm
 git commit -m 'some comment'
 
-添加一些文件（add），然后提交（commit）
+添加一些文件（***add***），然后提交（***commit***）
+***rm***在tempload添加一个删除文，使用***commit***来提交删除
+
 ##4. status&log
 >git status 
 git log
 git diff
 
 check **workload for _add_** and check the **records of _commit_**
-***diff*** shows the differences between the workload and your current files
+***diff*** shows the differences between the workload and tempload
+
+##5. checkout&reset
+>git checkout
+>git reset --hard HEAD^
+>git reset --hard [commitid]
+
+***checkout***将暂存区（如果没有就是最近的分支）的==某个文件==复制到workload，即还原工作区的修改==改变的是workload==
+***reset***则会返回版本 注意HEAD的指向，==使用***--hard***参数==
+
+>git reflog
+
+***reflog***返回分支变化记录
 
 ***
 ###sum
 some conceptions and commends. 
-`your current files-------------workload------------------brunch`
-`--------------------------------add---------------------commit-------------`
+|workload|------------|tmpload|-----------------|bunch|
+  add ------------------>|commit----------------->|
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <---------checkout|<----------------reset
