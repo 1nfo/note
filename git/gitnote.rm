@@ -51,17 +51,42 @@ some conceptions and commends.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| <---------checkout|<----------------reset
 
 ---
-##6. github, remote add & push
+##6. github, remote add & push 本地到远程
 github 使用ssh验证，关于非对称加密，可见key.rm
 >ssh-keygen -t rsa -C ‘myemailadress’ 
 
 使用默认选项，一路回车创建你的密钥。linux在～/.ssh/下有你的公钥和私钥，复制**公钥**到github你的设置中。同时，要新建一个仓库（是否要和本地仓库同名？）
 >cd your_repo_dir
 >git remote add git@github.com:yournameingithub/yourreponame
->git push -u origin yourbrunchname
+>git push -u origin yourbranchname
 
 推送本地到远程需要在仓库目录下，
-第一次连接两个仓库要命名一个origin，push时-u会把两个仓库的brunch关联起来
+第一次连接两个仓库要命名一个origin，***push***时-u会把两个仓库的branch关联起来
 >git push origin reponame
 
 之后就可以简化推送了
+##7. github 远程到本地 clone
+>git clone git@github.com:usr/repo
+
+任何人都可以clone下来。在pwd，当前路径下创建repo目录。
+##8.分支--单链条 branch，checkout&merge
+>git checkout -b newbranch
+
+该命令等价于以下两个命令
+>git branch newbranch
+>git checkout newbranch
+
+创建新的分支指针，之后再切换到新的指针
+>git branch
+
+可以通过***branch***来查看分支。
+在新的分支上进行管理操作，可以不断指向产生一系列新节点
+而master（远分支指针）一直会指向当前结点。
+但newbranch完成了其使命后，可以直接切回master并合并分支
+>git checkout master
+git merge newbranch
+
+最后删除newbranch
+>git branch -d newbranch
+
+这个newbranch就像个小弟为master在前面探路，保证master的整洁性。
