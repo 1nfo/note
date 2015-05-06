@@ -69,6 +69,9 @@ github 使用ssh验证，关于非对称加密，可见key.rm
 >git clone git@github.com:user/repo
 
 任何人都可以clone下来。在pwd，当前路径下创建repo目录。
+>git pull
+
+保证本地与远程版本同步
 ##8.分支--单链条 branch，checkout&merge
 >git checkout -b newbranch
 
@@ -90,8 +93,37 @@ git merge newbranch
 >git branch -d newbranch
 
 这个newbranch就像个小弟为master在前面探路，保证master的整洁性。
-#9. 分支管理
+##9. 分支管理
 master分支是稳定版本
 dev为实际版本，团队合作时，每个人分别在自己的dev分支上工作，完成后提交到一起，注意使用***--no-ff***模式，***这样合并后是在dev上新建一个提交并复制成待合并分支的最新版本，而不是沿着待合并的分支逐个复制***
 >git merge --no-ff -m 'no fast forward'
 
+区别：***--no-ff***在***log***中与*fast forward*的记录是相同的
+但是在reflog中是不同的：==reflog中的no-ff只会增加指向merged branch的最新提交的记录，而ff会将所有的指针记录复制过来==
+##10. stash工作区
+>git stash
+
+将工作区的修改保存（剪切）到当前分支下的stash中，这样==切换分支的时候就不会丢失工作区的修改==。可以用于临时转换分支进行修改工作，之后切换回来，读取stash到工作区，继续之前的工作
+>git stash list
+
+列出stash的list
+>git stash apply
+git stash drop
+
+以上两句的功能与下句相同
+>git stash pop
+
+对于多个stash 可使用来指定stash回复到工作区
+>git stash apply stash@{0}
+
+##11. 推送远程dev分支
+>git clone git@github.com:usrname/repo
+
+从远程库克隆
+这时默认只有master分支，其他分支没有对应关系
+>git checkout -b dev origin/dev
+
+基于远程origin库/dev分支建立本地dev分支，用以***push***
+>git branch -set-upstream dev origin/dev
+
+用以***pull***
