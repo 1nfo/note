@@ -66,7 +66,7 @@ github 使用ssh验证，关于非对称加密，可见key.rm
 
 之后就可以简化推送了
 ##7. github 远程到本地 clone
->git clone git@github.com:usr/repo
+>git clone git@github.com:user/repo
 
 任何人都可以clone下来。在pwd，当前路径下创建repo目录。
 ##8.分支--单链条 branch，checkout&merge
